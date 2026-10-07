@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ravan Reddy - Resume</title>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f2;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .resume {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      padding: 50px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      border-radius: 14px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 25px;
+    }
+
+    .name {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .role {
+      margin-top: 5px;
+      color: #666;
+      font-size: 18px;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .contact div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 7px;
+      margin: 5px 0;
+    }
+
+    /* Tree Layout */
+    .tree {
+      position: relative;
+      margin-top: 45px;
+    }
+
+    /* Main tree trunk */
+    .tree::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #222;
+      transform: translateX(-50%);
+    }
+
+    .section {
+      width: 46%;
+      padding: 22px;
+      margin-bottom: 35px;
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .section:nth-child(odd) {
+      margin-right: auto;
+    }
+
+    .section:nth-child(even) {
+      margin-left: auto;
+    }
+
+    /* Branch */
+    .section::after {
+      content: "";
+      position: absolute;
+      top: 35px;
+      width: 35px;
+      height: 2px;
+      background: #222;
+    }
+
+    .section:nth-child(odd)::after {
+      right: -35px;
+    }
+
+    .section:nth-child(even)::after {
+      left: -35px;
+    }
+
+    /* Tree Node */
+    .section::before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      width: 14px;
+      height: 14px;
+      background: white;
+      border: 3px solid #222;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .section:nth-child(odd)::before {
+      right: -43px;
+    }
+
+    .section:nth-child(even)::before {
+      left: -43px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .section-title i {
+      width: 21px;
+      height: 21px;
+    }
+
+    .item {
+      margin-bottom: 16px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item h3 {
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .item span {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .item p {
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      background: white;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+
+      .resume {
+        margin: 10px;
+        padding: 25px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .contact {
+        text-align: left;
+      }
+
+      .contact div {
+        justify-content: flex-start;
+      }
+
+      .name {
+        font-size: 32px;
+      }
+
+      .tree::before {
+        left: 8px;
+      }
+
+      .section,
+      .section:nth-child(odd),
+      .section:nth-child(even) {
+        width: calc(100% - 30px);
+        margin-left: 30px;
+        margin-right: 0;
+      }
+
+      .section::after {
+        left: -30px !important;
+        right: auto !important;
+        width: 30px;
+      }
+
+      .section::before {
+        left: -38px !important;
+        right: auto !important;
+      }
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .resume {
+        margin: 0;
+        box-shadow: none;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="resume">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <div>
+        <div class="name">Ravan Reddy</div>
+        <div class="role">B.Tech Student | Web Developer | Programmer</div>
+      </div>
+
+      <div class="contact">
+
+        <div>
+          <i data-lucide="mail"></i>
+          yourmail@gmail.com
+        </div>
+
+        <div>
+          <i data-lucide="phone"></i>
+          +91 XXXXX XXXXX
+        </div>
+
+        <div>
+          <i data-lucide="map-pin"></i>
+          Andhra Pradesh, India
+        </div>
+
+        <div>
+          <i data-lucide="github"></i>
+          github.com/yourusername
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- TREE -->
+    <main class="tree">
+
+      <!-- ABOUT -->
+      <section class="section">
+
+        <h2 class="section-title">
+          <i data-lucide="user"></i>
+          About Me
+        </h2>
+
+        <p>
+          Motivated B.Tech student interested in programming,
+          web development and problem solving. Passionate about
+          learning new technologies and building practical projects.
+        </p>
+
+      </section>
+
+
+      <!-- EDUCATION -->
+      <section class="section">
+
+        <h2 class="section-title">
+          <i data-lucide="graduation-cap"></i>
+          Education
+        </h2>
+
+        <div class="item">
+          <h3>B.Tech</h3>
+          <span>MITS, Madanapalle | 2025 – Present</span>
+          <p>Computer Science / Engineering</p>
+        </div>
+
+        <div class="item">
+          <h3>Intermediate</h3>
+          <span>Your College | 2023 – 2025</span>
+        </div>
+
+      </section>
+
+
+      <!-- SKILLS -->
+      <section class="section">
+
+        <h2 class="section-title">
+          <i data-lucide="code-2"></i>
+          Skills
+        </h2>
+
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">C</span>
+          <span class="skill">Python</span>
+          <span class="skill">SQL</span>
+          <span class="skill">DSA</span>
+          <span class="skill">Git</span>
+        </div>
+
+      </section>
+
+
+      <!-- PROJECTS -->
+      <section class="section">
+
+        <h2 class="section-title">
+          <i data-lucide="folder-git-2"></i>
+          Projects
+        </h2>
+
+        <div class="item">
+          <h3>Personal Portfolio Website</h3>
+          <span>HTML • CSS • JavaScript</span>
+          <p>
+            Designed a responsive portfolio website to showcase
+            skills, projects and achievements.
+          </p>
+        </div>
+
+        <div class="item">
+          <h3>Student Management System</h3>
+          <span>C / SQL</span>
+          <p>
+            Developed a basic system for storing and managing
+            student information.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!-- EXPERIENCE -->
+      <section class="section">
+
+        <h2 class="section-title">
+          <i data-lucide="briefcase"></i>
+          Experience
+        </h2>
+
+        <div class="item">
+          <h3>Student Developer</h3>
+          <span>Academic Projects | 2025 – Present</span>
+          <p>
+            Worked on programming assignments, database projects
+            and web-based applications.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!-- CERTIFICATIONS -->
+      <section class="section">
+
+        <h2 class="section-title">
+          <i data-lucide="award"></i>
+          Certifications
+        </h2>
+
+        <div class="item">
+          <h3>Web Development Fundamentals</h3>
+          <span>Online Certification</span>
+        </div>
+
+        <div class="item">
+          <h3>Python Programming</h3>
+          <span>Online Certification</span>
+        </div>
+
+      </section>
+
+
+      <!-- INTERESTS -->
+      <section class="section">
+
+        <h2 class="section-title">
+          <i data-lucide="heart"></i>
+          Interests
+        </h2>
+
+        <div class="skills">
+          <span class="skill">Web Development</span>
+          <span class="skill">Programming</span>
+          <span class="skill">Cricket</span>
+          <span class="skill">Gaming</span>
+          <span class="skill">Technology</span>
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer class="footer">
+      © 2026 Ravan Reddy • Minimal Resume
+    </footer>
+
+  </div>
+
+
+  <!-- Activate Lucide -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
